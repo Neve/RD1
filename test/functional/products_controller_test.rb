@@ -73,4 +73,11 @@ class ProductsControllerTest < ActionController::TestCase
     assert_select '.list_actions', /[Show]|[Edit]|[Destroy]/
   end
 
+  test "can't delete product in cart" do
+    assert_difference('Product.count', 0) do
+      delete :destroy, :id => products(:ruby).to_param
+      assert_redirected_to products_path
+    end
+  end
+
 end
