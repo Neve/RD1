@@ -30,7 +30,8 @@ def new_test_product(image_url = "image.jpg" )
     product = new_test_product
     product.price = -1
     assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01",
+    assert_equal "must be greater than or equal to 0.01" ||
+      "Price must be less than or equal to 100500.01",
       product.errors[:price].join('; ')
 
     product.price = 0
