@@ -2,15 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.carts {
+.carts, #side, #cart{
   .cart_title {
     font: 120% bold;
   }
   .item_price, .total_line {
     text-align: right;
+    font-size: smaller;
   }
   .item_line, .total_cell {
     font-weight: bold;
+    font-size: small;
     border-top: 1px solid #595;
   }
 }

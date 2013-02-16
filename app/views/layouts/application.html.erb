@@ -13,9 +13,12 @@
   </div>
   <div id="columns">
     <div id="side">
+      <div id="cart">
+        <%= render @cart %>
+      </div>
       <ul>
-        <li><a href="http://127.0.0.1:3000/">Home</a></li>
-        <li><%= link_to "Store", products_index_path %></li>
+        <li><a href="http://127.0.0.1:3000/">Store</a></li>
+        <li><%= link_to "Manage", products_index_path %></li>
         <li> <a href="http://.../faq">Questions</a></li>
         <li><a href="http://.../news">News</a></li>
         <li><a href="http://.../contact">Contact</a></li>
