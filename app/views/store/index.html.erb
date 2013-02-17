@@ -4,7 +4,13 @@
 
 <h1> Book catalog</h1>
 <% if session[:counter] >= 5 %>
-  <div id="notice">You have been here for <%= pluralize(session[:counter], 'time', 'times') %>  Current session timestamp: <%= DateTime.now %></div>
+  <div id="notice">
+    You have been here for <%= pluralize(
+                                session[:counter],
+                                'time',
+                                'times'
+                           ) %>
+    Current session timestamp: <%= DateTime.now %></div>
 <% end %>
 
 <% @products.each do |product| %>
@@ -14,9 +20,18 @@
     <%= sanitize(product.description) %>
     <div class="price_line">
       <span class="price">
-        <%= number_to_currency(product.price, :unit => "$", :separator => ".", :delimiter => "", :format => "%u%n") %>
+        <%= number_to_currency(
+              product.price,
+              :unit => "$",
+              :separator => ".",
+              :delimiter => "",
+              :format => "%u%n"
+            ) %>
       </span>
-      <%= button_to 'Add to cart', line_items_path(product_id: product) %>
+      <%= button_to 'Add to cart',
+        line_items_path(product_id: product),
+        remote: true
+      %>
     </div>
   </div>
 <% end %>
